@@ -4,7 +4,7 @@
 #
 Name     : pypi-pygithub
 Version  : 1.55
-Release  : 5
+Release  : 6
 URL      : https://files.pythonhosted.org/packages/98/36/386d282903c572b18abc36de68aaf4146db4659c82dceee009ef88a86b67/PyGithub-1.55.tar.gz
 Source0  : https://files.pythonhosted.org/packages/98/36/386d282903c572b18abc36de68aaf4146db4659c82dceee009ef88a86b67/PyGithub-1.55.tar.gz
 Summary  : Use the full Github API v3
