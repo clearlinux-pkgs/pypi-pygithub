@@ -4,13 +4,13 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-pygithub
-Version  : 1.58.1
-Release  : 15
-URL      : https://files.pythonhosted.org/packages/20/6c/de921918c2b3e23057813d14edec87593798c9977b341ebb7d16ec1fb2b2/PyGithub-1.58.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/20/6c/de921918c2b3e23057813d14edec87593798c9977b341ebb7d16ec1fb2b2/PyGithub-1.58.1.tar.gz
+Version  : 1.58.2
+Release  : 16
+URL      : https://files.pythonhosted.org/packages/ba/9e/7dcb97cb7c4e4656b704ae78ea9c0846d2d8f471a66a495214da586bb593/PyGithub-1.58.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ba/9e/7dcb97cb7c4e4656b704ae78ea9c0846d2d8f471a66a495214da586bb593/PyGithub-1.58.2.tar.gz
 Summary  : Use the full Github API v3
 Group    : Development/Tools
-License  : GPL-3.0 LGPL-3.0
+License  : GPL-3.0 LGPL-3.0 MIT
 Requires: pypi-pygithub-license = %{version}-%{release}
 Requires: pypi-pygithub-python = %{version}-%{release}
 Requires: pypi-pygithub-python3 = %{version}-%{release}
@@ -71,10 +71,10 @@ python3 components for the pypi-pygithub package.
 
 
 %prep
-%setup -q -n PyGithub-1.58.1
-cd %{_builddir}/PyGithub-1.58.1
+%setup -q -n PyGithub-1.58.2
+cd %{_builddir}/PyGithub-1.58.2
 pushd ..
-cp -a PyGithub-1.58.1 buildavx2
+cp -a PyGithub-1.58.2 buildavx2
 popd
 
 %build
@@ -82,15 +82,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679327284
+export SOURCE_DATE_EPOCH=1684611292
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -109,6 +109,9 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-pygithub
 cp %{_builddir}/PyGithub-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pypi-pygithub/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
 cp %{_builddir}/PyGithub-%{version}/COPYING.LESSER %{buildroot}/usr/share/package-licenses/pypi-pygithub/f45ee1c765646813b442ca58de72e20a64a7ddba || :
+cp %{_builddir}/PyGithub-%{version}/tests/License.py %{buildroot}/usr/share/package-licenses/pypi-pygithub/2b782e8361a9b16e13d5200fec073138dbd71629 || :
+cp %{_builddir}/PyGithub-%{version}/tests/ReplayData/Github.testGetLicense.txt %{buildroot}/usr/share/package-licenses/pypi-pygithub/c93f43ee82da36b091a1f6b03cd3acd4ca2b2c0d || :
+cp %{_builddir}/PyGithub-%{version}/tests/ReplayData/License.setUp.txt %{buildroot}/usr/share/package-licenses/pypi-pygithub/519e6fe35ab02fbdbd4b9fba86485f8a2f709906 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -128,7 +131,10 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-pygithub/2b782e8361a9b16e13d5200fec073138dbd71629
+/usr/share/package-licenses/pypi-pygithub/519e6fe35ab02fbdbd4b9fba86485f8a2f709906
 /usr/share/package-licenses/pypi-pygithub/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+/usr/share/package-licenses/pypi-pygithub/c93f43ee82da36b091a1f6b03cd3acd4ca2b2c0d
 /usr/share/package-licenses/pypi-pygithub/f45ee1c765646813b442ca58de72e20a64a7ddba
 
 %files python
