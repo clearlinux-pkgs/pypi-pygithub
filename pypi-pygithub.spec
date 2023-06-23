@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-pygithub
-Version  : 1.58.2
-Release  : 16
-URL      : https://files.pythonhosted.org/packages/ba/9e/7dcb97cb7c4e4656b704ae78ea9c0846d2d8f471a66a495214da586bb593/PyGithub-1.58.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/ba/9e/7dcb97cb7c4e4656b704ae78ea9c0846d2d8f471a66a495214da586bb593/PyGithub-1.58.2.tar.gz
+Version  : 1.59.0
+Release  : 17
+URL      : https://files.pythonhosted.org/packages/92/90/11de38774314242ddfb5637a7cf9c80937c7e898699b8e63b407c212513e/PyGithub-1.59.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/92/90/11de38774314242ddfb5637a7cf9c80937c7e898699b8e63b407c212513e/PyGithub-1.59.0.tar.gz
 Summary  : Use the full Github API v3
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0 MIT
@@ -17,8 +17,6 @@ Requires: pypi-pygithub-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(deprecated)
 BuildRequires : pypi(py)
-BuildRequires : pypi(pynacl)
-BuildRequires : pypi(requests)
 BuildRequires : pypi(setuptools_scm)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
@@ -32,7 +30,7 @@ BuildRequires : pypi-virtualenv
 # PyGitHub
 [![PyPI](https://img.shields.io/pypi/v/PyGithub.svg)](https://pypi.python.org/pypi/PyGithub)
 ![CI](https://github.com/PyGithub/PyGithub/workflows/CI/badge.svg)
-[![readthedocs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://pygithub.readthedocs.io/en/latest/?badge=latest)
+[![readthedocs](https://img.shields.io/badge/docs-stable-brightgreen.svg?style=flat)](https://pygithub.readthedocs.io/en/stable/?badge=stable)
 [![License](https://img.shields.io/badge/license-LGPL-blue.svg)](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
 [![Slack](https://img.shields.io/badge/Slack%20channel-%20%20-blue.svg)](https://join.slack.com/t/pygithub-project/shared_invite/zt-duj89xtx-uKFZtgAg209o6Vweqm8xeQ)
 [![Open Source Helpers](https://www.codetriage.com/pygithub/pygithub/badges/users.svg)](https://www.codetriage.com/pygithub/pygithub)
@@ -71,10 +69,10 @@ python3 components for the pypi-pygithub package.
 
 
 %prep
-%setup -q -n PyGithub-1.58.2
-cd %{_builddir}/PyGithub-1.58.2
+%setup -q -n PyGithub-1.59.0
+cd %{_builddir}/PyGithub-1.59.0
 pushd ..
-cp -a PyGithub-1.58.2 buildavx2
+cp -a PyGithub-1.59.0 buildavx2
 popd
 
 %build
@@ -82,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684611292
+export SOURCE_DATE_EPOCH=1687535128
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
