@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-pygithub
-Version  : 1.59.0
-Release  : 17
-URL      : https://files.pythonhosted.org/packages/92/90/11de38774314242ddfb5637a7cf9c80937c7e898699b8e63b407c212513e/PyGithub-1.59.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/92/90/11de38774314242ddfb5637a7cf9c80937c7e898699b8e63b407c212513e/PyGithub-1.59.0.tar.gz
+Version  : 1.59.1
+Release  : 18
+URL      : https://files.pythonhosted.org/packages/fb/30/203d3420960853e399de3b85d6613cea1cf17c1cf7fc9716f7ee7e17e0fc/PyGithub-1.59.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/fb/30/203d3420960853e399de3b85d6613cea1cf17c1cf7fc9716f7ee7e17e0fc/PyGithub-1.59.1.tar.gz
 Summary  : Use the full Github API v3
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0 MIT
@@ -69,10 +69,10 @@ python3 components for the pypi-pygithub package.
 
 
 %prep
-%setup -q -n PyGithub-1.59.0
-cd %{_builddir}/PyGithub-1.59.0
+%setup -q -n PyGithub-1.59.1
+cd %{_builddir}/PyGithub-1.59.1
 pushd ..
-cp -a PyGithub-1.59.0 buildavx2
+cp -a PyGithub-1.59.1 buildavx2
 popd
 
 %build
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1687535128
+export SOURCE_DATE_EPOCH=1691078040
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
