@@ -7,7 +7,7 @@
 #
 Name     : pypi-pygithub
 Version  : 2.4.0
-Release  : 24
+Release  : 25
 URL      : https://files.pythonhosted.org/packages/f1/a0/1e8b8ca88df9857836f5bf8e3ee15dfb810d19814ef700b12f99ce11f691/pygithub-2.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f1/a0/1e8b8ca88df9857836f5bf8e3ee15dfb810d19814ef700b12f99ce11f691/pygithub-2.4.0.tar.gz
 Summary  : Use the full Github API v3
