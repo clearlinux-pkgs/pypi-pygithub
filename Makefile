@@ -1,5 +1,5 @@
 PKG_NAME := pypi-pygithub
-URL = https://files.pythonhosted.org/packages/f1/a0/1e8b8ca88df9857836f5bf8e3ee15dfb810d19814ef700b12f99ce11f691/pygithub-2.4.0.tar.gz
+URL = https://files.pythonhosted.org/packages/16/ce/aa91d30040d9552c274e7ea8bd10a977600d508d579a4bb262b95eccf961/pygithub-2.5.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
